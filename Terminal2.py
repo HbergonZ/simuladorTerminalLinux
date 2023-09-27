@@ -46,7 +46,7 @@ while True: #O programa entra em um loop infinito, onde o usuário pode inserir 
 
     #Comandos especiais. Aqui é um comando do pŕoprio simulador. !! retorna último comando válido, e ! com numeração, retorna um comando específico da lista do histórico.
     if command == "!!":
-        print(comandos_utilizados[-1] if comandos_utilizados else "Nenhum comando anterior") #if dentro do print é possível
+        print(comandos_utilizados[-1] if comandos_utilizados else "Nenhum comando correspondente no histórico.") #if dentro do print é possível
 
     elif command.startswith("!"): #Fiz a verificação do comando '!!' pa ficar mais fácil, aqui consdiera os outros começando por um '!' e um número.
         try:
