@@ -6,17 +6,19 @@ print("Terminal de Linux")
 
 i = 0
 command_err = False # a condição de erro no comando começa falsa pois sem comando, não tem como dar erro, certo?
-while True: #O programa entra em um loop infinito, onde o usuário pode inserir comandos repetidamente.
+rodando = True
+while rodando: #O programa entra em um loop infinito, onde o usuário pode inserir comandos repetidamente.
     command = input("osh> ")
+
+    if command == "exit":
+        print("Loop finalizado.")
+        rodando = False
+        continue  # Pula o fork e continua no próximo ciclo do loop
 
     pid = os.fork() #utilização do fork para criar um processo filho.
 
     if pid == 0:
         args = command.split()
-        
-        if args[0] == "exit":
-            print("Loop finalizado.") #comando exit pra quebrar o loop infinito.
-            break
 
         if args[0] == "history":
             for index, valor in enumerate(reversed(comandos_utilizados), start=1):
